@@ -1,6 +1,6 @@
 import { ArrowDown, Mail, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import profileImage from '@/assets/prince-profile.jpg';
+const profileImage = '/lovable-uploads/7b7a8b55-2c25-4cb8-b667-53984c064a20.png';
 
 const Hero = () => {
   const scrollToContact = () => {
