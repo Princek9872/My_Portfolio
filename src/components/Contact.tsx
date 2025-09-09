@@ -162,10 +162,9 @@ const Contact = () => {
 
         {/* Footer */}
         <div className="mt-16 pt-8 border-t border-border text-center">
-          <p className="text-muted-foreground">© 2024 Prince Kumar. Built with React</p>
+          <p className="text-muted-foreground">© Copyright 2025 Prince Kumar. All Rights Reserved</p>
           <p className="text-sm text-muted-foreground mt-2">
-            Passionate about creating innovative solutions that make a difference.
-          </p>
+        </p>
         </div>
       </div>
     </section>;
