@@ -62,11 +62,11 @@ const Hero = () => {
         {/* Profile Image */}
         <div className="flex justify-center">
           <div className="relative">
-            <div className="w-80 h-80 rounded-full overflow-hidden shadow-large hover-lift">
+            <div className="w-80 h-80 rounded-full overflow-hidden shadow-large hover-lift ring-4 ring-primary/20">
               <img 
                 src={profileImage} 
                 alt="Prince Kumar - Data Scientist & Software Engineer" 
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-center"
               />
             </div>
             {/* Decorative elements */}
