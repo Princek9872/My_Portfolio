@@ -5,7 +5,6 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
-
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -13,24 +12,24 @@ const Contact = () => {
     subject: '',
     message: ''
   });
-  const { toast } = useToast();
-
+  const {
+    toast
+  } = useToast();
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData(prev => ({
       ...prev,
       [e.target.name]: e.target.value
     }));
   };
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Simulate form submission
     toast({
       title: "Message Sent!",
-      description: "Thank you for your message. I'll get back to you soon!",
+      description: "Thank you for your message. I'll get back to you soon!"
     });
-    
+
     // Reset form
     setFormData({
       name: '',
@@ -39,30 +38,23 @@ const Contact = () => {
       message: ''
     });
   };
-
-  const contactInfo = [
-    {
-      icon: <Mail className="h-5 w-5" />,
-      label: "Email",
-      value: "prince9872kumar@gmail.com",
-      href: "mailto:prince9872kumar@gmail.com"
-    },
-    {
-      icon: <Phone className="h-5 w-5" />,
-      label: "Phone",
-      value: "+91 7819805619",
-      href: "tel:+917819805619"
-    },
-    {
-      icon: <MapPin className="h-5 w-5" />,
-      label: "Location",
-      value: "India",
-      href: null
-    }
-  ];
-
-  return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8">
+  const contactInfo = [{
+    icon: <Mail className="h-5 w-5" />,
+    label: "Email",
+    value: "prince9872kumar@gmail.com",
+    href: "mailto:prince9872kumar@gmail.com"
+  }, {
+    icon: <Phone className="h-5 w-5" />,
+    label: "Phone",
+    value: "+91 7819805619",
+    href: "tel:+917819805619"
+  }, {
+    icon: <MapPin className="h-5 w-5" />,
+    label: "Location",
+    value: "India",
+    href: null
+  }];
+  return <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4">
@@ -87,8 +79,7 @@ const Contact = () => {
             </div>
 
             <div className="space-y-4">
-              {contactInfo.map((info, index) => (
-                <Card key={index} className="card-gradient border-border hover-lift">
+              {contactInfo.map((info, index) => <Card key={index} className="card-gradient border-border hover-lift">
                   <CardContent className="p-6">
                     <div className="flex items-center space-x-4">
                       <div className="p-3 bg-primary/10 rounded-lg">
@@ -96,21 +87,13 @@ const Contact = () => {
                       </div>
                       <div>
                         <p className="text-sm font-medium text-muted-foreground">{info.label}</p>
-                        {info.href ? (
-                          <a 
-                            href={info.href}
-                            className="font-semibold hover:text-primary transition-smooth"
-                          >
+                        {info.href ? <a href={info.href} className="font-semibold hover:text-primary transition-smooth">
                             {info.value}
-                          </a>
-                        ) : (
-                          <p className="font-semibold">{info.value}</p>
-                        )}
+                          </a> : <p className="font-semibold">{info.value}</p>}
                       </div>
                     </div>
                   </CardContent>
-                </Card>
-              ))}
+                </Card>)}
             </div>
 
             {/* Availability */}
@@ -146,66 +129,29 @@ const Contact = () => {
                     <label htmlFor="name" className="text-sm font-medium">Name</label>
                     <div className="relative">
                       <User className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                      <Input
-                        id="name"
-                        name="name"
-                        type="text"
-                        placeholder="Your name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        className="pl-10"
-                        required
-                      />
+                      <Input id="name" name="name" type="text" placeholder="Your name" value={formData.name} onChange={handleChange} className="pl-10" required />
                     </div>
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="email" className="text-sm font-medium">Email</label>
                     <div className="relative">
                       <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        placeholder="your.email@example.com"
-                        value={formData.email}
-                        onChange={handleChange}
-                        className="pl-10"
-                        required
-                      />
+                      <Input id="email" name="email" type="email" placeholder="your.email@example.com" value={formData.email} onChange={handleChange} className="pl-10" required />
                     </div>
                   </div>
                 </div>
 
                 <div className="space-y-2">
                   <label htmlFor="subject" className="text-sm font-medium">Subject</label>
-                  <Input
-                    id="subject"
-                    name="subject"
-                    type="text"
-                    placeholder="What's this about?"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    required
-                  />
+                  <Input id="subject" name="subject" type="text" placeholder="What's this about?" value={formData.subject} onChange={handleChange} required />
                 </div>
 
                 <div className="space-y-2">
                   <label htmlFor="message" className="text-sm font-medium">Message</label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    placeholder="Tell me about your project or inquiry..."
-                    value={formData.message}
-                    onChange={handleChange}
-                    className="min-h-32"
-                    required
-                  />
+                  <Textarea id="message" name="message" placeholder="Tell me about your project or inquiry..." value={formData.message} onChange={handleChange} className="min-h-32" required />
                 </div>
 
-                <Button 
-                  type="submit" 
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground hover-glow"
-                >
+                <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground hover-glow">
                   Send Message
                   <Send className="ml-2 h-4 w-4" />
                 </Button>
@@ -216,16 +162,12 @@ const Contact = () => {
 
         {/* Footer */}
         <div className="mt-16 pt-8 border-t border-border text-center">
-          <p className="text-muted-foreground">
-            © 2024 Prince Kumar. Built with React, TypeScript, and Tailwind CSS.
-          </p>
+          <p className="text-muted-foreground">© 2024 Prince Kumar. Built with React</p>
           <p className="text-sm text-muted-foreground mt-2">
             Passionate about creating innovative solutions that make a difference.
           </p>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Contact;
